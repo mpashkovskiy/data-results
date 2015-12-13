@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SF Incidents frequency analysis</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>SF Incidents frequency analysis.</h1>
+          <p>Brief analysis of the data shows us that we can focus only on ten categories of incidents:</p>
+          <ul>
+            <li>LARCENY/THEFT</li>
+            <li>ASSAULT</li>
+            <li>ROBBERY</li>
+            <li>DRUG/NARCOTIC</li>
+            <li>WARRANTS</li>
+            <li>MISSING PERSON</li>
+            <li>VEHICLE THEFT</li>
+            <li>ARSON</li>
+            <li>PROSTITUTION</li>
+            <li>TRESPASS</li>
+          </ul>
+          <p>Let's visualize it using following rules (using following visual attributes mapping):</p>
+          <ul>
+            <li>Size of a circle - sum of incidents of 10 categories</li>
+            <li>Color of a circle - primary incident category in the group</li>
+            <li>Y coord - hour</li>
+            <li>X coord - day</li>
+          </ul>
+          <p>As a result we get</p>
+          <img src="main.png" width="100%"/>
+          <p>
+            See <a href="http://mpashkovskiy.github.io/data-results/main.html">live example</a> or <a href="https://github.com/mpashkovskiy/data-results">sourse code</a></p>
+          </p>
+          <h2>Summary</h2>
+          <p>Thanks to this vizualization we can say:</p> 
+          <ul>
+            <li>Most incidents happens between 4 and 8 PM.</li>
+            <li>Relatively few incidents happens between 3 and 6 AM.</li>
+            <li>Most incidents are related to LARCENY/THEFT</li>
+            <li>ASSAULTS are on the second place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</head>
