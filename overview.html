@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+    body {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+
+      var margin = {top: 20, right: 20, bottom: 30, left: 50},
+          width = 1500 - margin.left - margin.right,
+          height = 150 - margin.top - margin.bottom;
+
+      var x = d3.time.scale()
+          .range([0, width]);
+
+      var y = d3.scale.linear()
+          .range([height, 0]);
+
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left");
+
+      var stat = [];
+
+      var line = d3.svg.line()
+          .x(function(d) { return x(d.Date); })
+          .y(function(d) { return y(stat[d.Date][d.Category]); });
+
+      var color = d3.scale.category20();
+
+      d3.csv("sanfrancisco_incidents_summer_2014.csv", function(error, data) {
+        if (error) throw error;
+
+        var cats = [];
+        data.forEach(function(d) {
+          var parts = d.Date.split('/');
+          var str = parts[2] + '-' + parts[0] + '-' + parts[1];
+          d.Date = Date.parse(str);
+
+          if (!stat[d.Date]) {
+            stat[d.Date] = [];
+          }
+
+          if (stat[d.Date][d.Category]) {
+            stat[d.Date][d.Category] += 1;
+          } else {
+            stat[d.Date][d.Category] = 1;
+          }
+
+          if (cats.indexOf(d.Category) === -1) {
+            cats.push(d.Category);
+          }
+        });
+
+        x.domain(d3.extent(data, function(d) { return d.Date; }));
+        y.domain(d3.extent(data, function(d) { return stat[d.Date][d.Category]; }));
+
+        cats.forEach(function(c) {
+          var svg = d3.select("body").append("div").text(c);
+          var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+          svg.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(xAxis);
+
+          svg.append("g")
+              .attr("class", "y axis")
+              .call(yAxis)
+            .append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
+              .text("Price ($)");
+
+          svg.append("path")
+              .datum(
+                // data
+                data.filter(function(d){
+                  return d.Category === c;
+                })
+              )
+              .attr("class", "line")
+              .attr("d", line)
+              .style("stroke", function(d) { return color(c); });
+        });
+      });
+
+    </script>
+  </body>
+</html>

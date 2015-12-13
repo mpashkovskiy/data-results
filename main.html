@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font: 10px sans-serif;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .dot {
+        stroke: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+      var margin = {top: 20, right: 250, bottom: 60, left: 50},
+          width = 1500 - margin.left - margin.right,
+          height = 700 - margin.top - margin.bottom;
+
+      var x = d3.time.scale()
+          .range([0, width]);
+
+      var y = d3.scale.linear()
+          .range([height, 0]);
+
+      var color = d3.scale.category10();
+
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left");
+
+      var svg = d3.select("body").append("svg")
+          .attr("width",  width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.csv("sanfrancisco_incidents_summer_2014.csv", function(error, data) {
+        if (error) throw error;
+
+        var filter = [
+        'NON-CRIMINAL', 'OTHER OFFENSES', 'SUSPICIOUS OCC', 'STOLEN PROPERTY',
+        'BRIBERY',
+        'PORNOGRAPHY/OBSCENE MAT',
+        'EXTORTION',
+        'GAMBLING',
+        'RUNAWAY',
+        'STOLEN PROPERTY',
+        'VANDALISM',
+        'SUICIDE',
+        'BURGLARY',
+        'EMBEZZLEMENT',
+        'FORGERY/COUNTERFEITING',
+        'DISORDERLY CONDUCT',
+        'LOITERING',
+        'FAMILY OFFENSES',
+        'KIDNAPPING',
+        'LIQUOR LAWS',
+        'DRUNKENNESS',
+        'SECONDARY CODES',
+        'FRAUD',
+        'DRIVING UNDER THE INFLUENCE',
+        'WEAPON LAWS'
+        ];
+        data = data.filter(function(d){
+          return filter.indexOf(d.Category) === -1;
+        });
+
+        var stat = [];
+        // var ticks = [];
+        var maxCrimes = 0;
+        data.forEach(function(d) {
+          var parts = d.Date.split('/');
+          var str = parts[2] + '-' + parts[0] + '-' + parts[1];
+          d.Date = Date.parse(str);
+          // if (ticks.indexOf(d.Date) === -1) {
+          //   ticks.push(d.Date);
+          // }
+
+          d.Hour = d.Time.substring(0, 2);
+          if (!stat[d.Date])
+            stat[d.Date] = [];
+
+          if (!stat[d.Date][d.Hour])
+            stat[d.Date][d.Hour] = [];
+
+          if (stat[d.Date][d.Hour][d.Category]) {
+            stat[d.Date][d.Hour][d.Category] += 1;
+            if (maxCrimes < stat[d.Date][d.Hour][d.Category]) {
+              maxCrimes = stat[d.Date][d.Hour][d.Category]
+            }
+          } else {
+            stat[d.Date][d.Hour][d.Category] = 1;
+          }
+        });
+        // xAxis.ticks(d3.time.day, 1);
+
+        x.domain(d3.extent(data, function(d) { return d.Date; }));
+        y.domain(d3.extent(data, function(d) { return d.Hour; }));
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0, " + (height + 10) + ")")
+            .call(xAxis)
+          .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", 36)
+            .style("text-anchor", "end")
+            .text("Date");
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-10, 0)")
+            .call(yAxis)
+          .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -36)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Hour")
+
+        svg.selectAll(".dot")
+            .data(data)
+          .enter().append("circle")
+            .attr("class", "dot")
+            // .attr("r", 1)
+            .attr("r",  function(d) {
+              var val = 0;
+              var maxCat = '';
+              for (var cat in stat[d.Date][d.Hour]) {
+                val += stat[d.Date][d.Hour][cat];
+                if (maxCat === '') {
+                  maxCat = cat;
+                } else {
+                  if (stat[d.Date][d.Hour][maxCat] < stat[d.Date][d.Hour][cat]) {
+                    maxCat = cat;
+                  }
+                }
+              }
+              d.PrimaryCat = maxCat;
+              return (maxCrimes !== 0) ? 1 + val / maxCrimes * 4 : 0;
+              // return stat[d.Date][d.Hour][d.Category];
+            })
+            .attr("cx", function(d) { return x(d.Date); })
+            .attr("cy", function(d) { return y(d.Hour); })
+            .style("fill", function(d) { return color(d.PrimaryCat); })
+        ;
+
+        var legend = svg.selectAll(".legend")
+            .data(color.domain())
+          .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(40, " + i * 20 + ")"; });
+
+        legend.append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", color);
+
+        legend.append("text")
+            .attr("x", width + 4)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            // .style("text-anchor", "end")
+            .text(function(d) { return d; });
+
+      });
+    </script>
+  </body>
+</head>
