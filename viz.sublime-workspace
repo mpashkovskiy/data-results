@@ -1,0 +1,287 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/mpashkovskiy/workspaces/my/data-results"
+	],
+	"file_history":
+	[
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/directives/workspace.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/stack.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/activityroleassociation.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/directives/sorter.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/userdata.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/user.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/report.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/test/spec/controllers/system-reports/usage-reports.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/system-reports/usage-reports.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/system-reports/modal.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/test/spec/controllers/system-reports/modal.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/terms.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/index.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/directives/workspace.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/styles/main.scss",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/footer.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/terms-modal.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/vendor/ui-bootstrap-custom-tpls-0.13.0.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/not-modal/window.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/directives/modalresizable.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/my-account.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/feedback.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/terms.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/app.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/system-reports/usage-reports.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/computing-environment.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/services/settings.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/system-reports/audit-reports.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/files-delete-confirm.html",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/scripts/controllers/user-management/edit-account.js",
+		"/C/Users/mpashkovskiy/workspaces/certara/web-frontend/app/views/user-delete-confirm.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/services/settings.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/nav.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/visualizations/apps.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/visualizations/apps.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/user-management/edit-account.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/user-management/edit-account.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/services/nav.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/visualizations/submit.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/visualizations.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/visualizations.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/styles/main.scss",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/services/paths.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/app.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/visualizations.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/services/stack.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/computing-environment.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/computing-environment.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/directives/modaldraggable.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/directives/modalresizable.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/karma.conf.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/submit-dataset-files.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/submit-dataset.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/system-reports.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/terms.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/user-management.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/program-management/assignment-by-program.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/program-management/assignment-by-user.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/program-management/program-setup.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/user-management/edit-account.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/user-management/manage-permissions.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/modeling-activities.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/forgot-password.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/password-reset.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/test/spec/controllers/my-account.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/directives/workspace.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/computing-environment.html",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/scripts/controllers/modeling-activities.js",
+		"/C/Users/mpashkovskiy/workspace/web-frontend/app/views/modeling-activities.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 108.0,
+		"where_history":
+		[
+			"C:\\Users\\mpashkovskiy\\workspaces\\certara\\web-frontend",
+			"C:\\Users\\mpashkovskiy\\workspaces\\certara\\web-frontend\\bower_components",
+			"C:\\Users\\mpashkovskiy\\workspace\\web-frontend"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"",
+			"constra",
+			"windowClass",
+			"openedClass",
+			"scrollable-body",
+			"scrollableBody",
+			"scrollable-body",
+			"scrollableBody",
+			"scrollable-body",
+			"scrollableBody",
+			"scope.user",
+			"error",
+			"workspaceError",
+			"indexof",
+			"(function(",
+			"\\t",
+			"margin",
+			"\\t",
+			"added directive",
+			"user",
+			".user",
+			"$scope.stacks",
+			"removeFromPending",
+			".id",
+			"stack.id",
+			"console.log",
+			"$scope.resources",
+			"push2Pending",
+			"pendingStacks",
+			"stacksChecked",
+			"computeResources"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"'",
+			"  "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\Users\\mpashkovskiy\\workspaces\\my\\data-results"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 361.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

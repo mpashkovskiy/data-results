@@ -1,0 +1,19 @@
+Key Finding and Overall Structure: Is the key finding prominently displayed? Are there 2-3 supporting visualizations?
+> rate 3
+> 1. add charts
+
+
+Visualization Methods: Do the visualizations use proper encoding of data types? (See lectures "Mapping Data Types to Visual Attributes") For example, numeric data should not be mapped to glyphs.
+> rate 2.5
+> numeric data should not be mapped to glyphs
+2. add charts totalincidents
+3. incidents per hour (stacked?) 
+
+Visual Encodings: Do the visualizations use appropriate visual encoding guidelines? (See lecture "Effective Visual Encoding") Were the most important variables mapped to the more accurate visual attributes (position, length)? Are the visual mappings consistent with the data? Do the choices of visual mappings express the appropriate relationships? (e.g., color cannot express greater-than/less-than relationships.)
+> rate 2,5
+
+Comprehensibility: Are the visualizations immediately understandable?
+> rate 2
+Visualization Specificity: Would some other visualization be more appropriate to make this argument? Is the visualization needlessly complex?
+> rate 2,5
+4. remove complex graph

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="radar-chart.min.css">
+    <style>
+      /*.h-barchart {
+        width: 100%;
+      }
+
+      .h-barchart rect {
+        fill: steelblue;
+      }
+
+      .h-barchart text {
+        font: 10px sans-serif;
+        text-anchor: end;
+      }*/
+
+      .radar-chart .area {
+        fill-opacity: 0;
+      }
+    </style>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="radar-chart.min.js"></script>
+  </head>
+  <body>
+    <div id="ch"></div>
+    <script>
+
+    d3.csv("sanfrancisco_incidents_summer_2014.csv", function(error, data) {
+
+      data = data.filter(function(d){
+        return d.Category === 'VEHICLE THEFT';
+      });
+
+      var radarData = [];
+      var getIdxByField = function(arr, att, val) {
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i][att] === val) {
+            return i;
+          }
+        }
+        return -1;
+      };
+      var LegendOptions = [];
+      data.forEach(function(d) {
+        // var parts = d.Date.split('/');
+        // var str = parts[2] + '-' + parts[0] + '-' + parts[1];
+        // d.Date = Date.parse(str);
+        d.Hour = d.Time.substring(0, 2);
+
+        // if (d.Category === 'LARCENY/THEFT') {
+        // if (d.DayOfWeek === 'Saturday') {
+          // var key0 = d.Descript;
+          var key0 = d.Category;
+          var hIdx = getIdxByField(radarData, 'className', key0);
+          if (hIdx === -1) {
+            hIdx = radarData.length;
+            var axes = [];
+            // [
+            //   '00', '01', '02', '03', '04', '05', '06', '07', '08',
+            //   '09', '10', '11', '12', '13', '14', '15', '16', '17',
+            //   '18', '19', '20', '21', '22', '23'
+            // ].reverse().forEach(function(h){
+            //   axes.push({ axis: h, value: 0 });
+            // });
+            radarData.push({ className: key0, axes: axes });
+            LegendOptions.push(key0);
+          }
+
+          var key1 = d.DayOfWeek;
+          // var key1 = d.Hour;
+          var aIdx = getIdxByField(radarData[hIdx].axes, 'axis', key1);
+          if (aIdx === -1) {
+            aIdx = radarData.length;
+            radarData[hIdx].axes.push({ axis: key1, value: 1 });
+          } else {
+            radarData[hIdx].axes[aIdx].value++;
+          }
+        // }
+      });
+
+  console.log(radarData);
+
+      RadarChart.defaultConfig.radius = 2;
+      RadarChart.defaultConfig.w = 1000;
+      RadarChart.defaultConfig.h = 1000;
+      RadarChart.draw("#ch", radarData);
+
+
+
+var svg = d3.select('body')
+  .selectAll('svg')
+  .append('svg')
+  .attr("width", 300)
+  .attr("height", 300);
+
+
+
+
+
+var colorscale = d3.scale.category10();
+      //Initiate Legend 
+      var legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("height", 100)
+        .attr("width", 200)
+        .attr('transform', 'translate(90,20)') 
+        ;
+        //Create colour squares
+        legend.selectAll('rect')
+          .data(LegendOptions)
+          .enter()
+          .append("rect")
+          .attr("x", - 65)
+          .attr("y", function(d, i){ return i * 20;})
+          .attr("width", 10)
+          .attr("height", 10)
+          .style("fill", function(d, i){ return colorscale(i);})
+          ;
+        //Create text next to squares
+        legend.selectAll('text')
+          .data(LegendOptions)
+          .enter()
+          .append("text")
+          .attr("x", - 52)
+          .attr("y", function(d, i){ return i * 20 + 9;})
+          .attr("font-size", "11px")
+          .attr("fill", "#737373")
+          .text(function(d) { return d; })
+          ; 
+
+    });
+
+    </script>
+  </body>
+</html>
